@@ -1,8 +1,5 @@
 # PAUSA.exe 🍃
 
-
-    <link rel="icon" href="/Assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css"> 
 ## Sobre o projeto
 
 Desenvolvido em comemoração do dia do estudantes e Agosto de Lilás. O intuito é fazer com que os estutantes deem uma pequena pausa nos estudos, projetos, atividades para lembrar que por trás da tela, de cada código há uma pessoa que precisa de cuidado e descanso ♥. 
