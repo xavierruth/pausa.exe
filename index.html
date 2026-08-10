@@ -6,7 +6,7 @@
     <link rel="icon" href="/Assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 
-    <title>PAUSA.exe</title>
+    <title>PAUSAe.exe</title>
 </head>
 <body>
     <main>
@@ -20,14 +20,28 @@
                     <h1 class="sr-only"> Inicializando meu autocuidado ♥</h1>
                 </header>
 
-                <div class="carregamento-container">
-
-                    <div class="carregamento-barra">
-                        <span id="carregamento-progresso" 
-                        class="carregamento-progresso"></span>
+                <div id="entrada-nome" class="entrada-nome">
+                    <label for="nome">Digite seu nome para continuar:</label>
+                    <div class="terminal-input">
+                        <span>&gt;</span>
+                        <input type="text" id="nome"
+                        name="nome" placeholder="seunome"
+                        autocomplete="off">
                     </div>
+                    <button id="confirmar-nome" type="button"
+                    class="terminal-button"> Enter ↵</button>
+                </div>
 
-                    <output id="carregamento-porcentagem">0%</output>
+                <div id="area-carregamento" class="area-carregamento hidden"> 
+                    <div class="carregamento-container">
+
+                        <div class="carregamento-barra">
+                            <span id="carregamento-progresso" 
+                            class="carregamento-progresso"></span>
+                        </div>
+
+                        <output id="carregamento-porcentagem">0%</output>
+                    </div>
                 </div>
 
                 <div class="terminal-check">
@@ -180,7 +194,7 @@
                 </aside>
 
                 <button type="button" 
-                class="primary-button" data-next="sorte"> Tem mais uma coisa...</button>
+                class="primary-button" data-next="biscoito"> Tem mais uma coisa...</button>
             </article>
         </section>
 
@@ -222,7 +236,8 @@
                 <p class="vendo"> BUILD CONCLUÍDA \o/</p>
                 <h2>null, você não é uma máquina.</h2>
                 <p>Você não precisa dar conta de tudo o tempo inteiro.</p>
-                <strong>Cuide da pessoa por trás do estudo, trabalho... do código.</strong>
+                <strong>Cuide da pessoa por trás do estudo, do código. <br>
+                    A melhor demonstração de amor próprio e cuidando da pessoa mais importante, <em>você!</em></strong>
 
                 <div class="commit"> 
                     <p>&gt; git status</p>

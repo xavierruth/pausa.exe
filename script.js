@@ -1,4 +1,3 @@
-
 /* =========================================
    VARIÁVEIS
 ========================================= */
@@ -7,92 +6,74 @@ let nomeAluno = "";
 let energia = "";
 let preciso = "";
 
+let biscoitoAberto = false;
+
 
 /* =========================================
    ELEMENTOS
 ========================================= */
 
-const telas =
-    document.querySelectorAll(".screen");
+const telas = document.querySelectorAll(".screen");
+
+const nomeInput = document.getElementById("nome");
+
+const confirmarNome = document.getElementById("confirmar-nome");
+
+const entradaNome = document.getElementById("entrada-nome");
+
+const areaCarregamento = document.getElementById("area-carregamento");
 
 const carregamentoProgresso =
-    document.getElementById(
-        "carregamento-progresso"
-    );
+    document.getElementById("carregamento-progresso");
 
 const carregamentoPorcentagem =
-    document.getElementById(
-        "carregamento-porcentagem"
-    );
+    document.getElementById("carregamento-porcentagem");
 
 const proxSecao =
-    document.getElementById(
-        "prox-secao"
-    );
+    document.getElementById("prox-secao");
 
 const mostrarResultado =
-    document.getElementById(
-        "mostrar-resultado"
-    );
+    document.getElementById("mostrar-resultado");
 
 const textoResultado =
-    document.getElementById(
-        "texto-resultado"
-    );
+    document.getElementById("texto-resultado");
 
 const biscoitoSorte =
-    document.getElementById(
-        "biscoito-sorte"
-    );
+    document.getElementById("biscoito-sorte");
 
 const biscoitoHint =
-    document.getElementById(
-        "biscoito-hint"
-    );
+    document.getElementById("biscoito-hint");
 
 const sorteResultado =
-    document.getElementById(
-        "sorte-resultado"
-    );
+    document.getElementById("sorte-resultado");
 
 const continuarSorte =
-    document.getElementById(
-        "continuar-sorte"
-    );
+    document.getElementById("continuar-sorte");
 
 const reiniciar =
-    document.getElementById(
-        "reiniciar"
-    );
+    document.getElementById("reiniciar");
 
 
 /* =========================================
-   PEGAR NOME DO ALUNO
+   CONFIRMAR NOME
 ========================================= */
 
-function pedirNome() {
+function confirmarNomeAluno() {
 
-    while (!nomeAluno) {
+    nomeAluno = nomeInput.value.trim();
 
-        nomeAluno = prompt(
-            "Antes de começar... qual é o seu nome? ♥"
-        );
-
-        if (nomeAluno) {
-            nomeAluno = nomeAluno.trim();
-        }
+    if (!nomeAluno) {
+        nomeInput.focus();
+        return;
     }
 
-
     /*
-     * Procura "null" no HTML e substitui
-     * pelo nome digitado pelo aluno.
-     */
+    Substitui todos os "null"
+    pelo nome digitado.
+    */
 
     document
-        .querySelectorAll(
-            "p, h1, h2, h3, strong"
-        )
+        .querySelectorAll("p, h1, h2, h3, strong")
         .forEach((elemento) => {
 
             elemento.innerHTML =
@@ -102,7 +83,50 @@ function pedirNome() {
                 );
 
         });
+
+
+    /*
+    Esconde o campo de nome
+    */
+
+    entradaNome.classList.add("hidden");
+
+
+    /*
+    Mostra o loading
+    */
+
+    areaCarregamento.classList.remove("hidden");
+
+
+    iniciarCarregamento();
 }
+
+
+/* =========================================
+   BOTÃO DO NOME
+========================================= */
+
+confirmarNome.addEventListener(
+    "click",
+    confirmarNomeAluno
+);
+
+
+/* =========================================
+   ENTER NO INPUT
+========================================= */
+
+nomeInput.addEventListener(
+    "keydown",
+    (evento) => {
+
+        if (evento.key === "Enter") {
+            confirmarNomeAluno();
+        }
+
+    }
+);
 
 
 /* =========================================
@@ -133,6 +157,7 @@ function iniciarCarregamento() {
                 mostrarTela("bemvindos");
 
             }, 700);
+
         }
 
     }, 30);
@@ -146,9 +171,7 @@ function iniciarCarregamento() {
 function mostrarTela(idTela) {
 
     telas.forEach((tela) => {
-
         tela.classList.remove("active");
-
     });
 
 
@@ -157,12 +180,15 @@ function mostrarTela(idTela) {
 
 
     if (!telaEscolhida) {
+        console.error(
+            `A tela "${idTela}" não existe.`
+        );
+
         return;
     }
 
 
     telaEscolhida.classList.add("active");
-
 
     window.scrollTo({
         top: 0,
@@ -172,7 +198,7 @@ function mostrarTela(idTela) {
 
 
 /* =========================================
-   BOTÕES data-next
+   BOTÕES DATA-NEXT
 ========================================= */
 
 document
@@ -183,24 +209,8 @@ document
             "click",
             () => {
 
-                let proximaTela =
+                const proximaTela =
                     botao.dataset.next;
-
-
-                /*
-                 * Caso o HTML ainda esteja usando:
-                 *
-                 * data-next="sorte"
-                 *
-                 * mas a seção se chame:
-                 *
-                 * id="biscoito"
-                 */
-
-                if (proximaTela === "sorte") {
-                    proximaTela = "biscoito";
-                }
-
 
                 mostrarTela(proximaTela);
 
@@ -211,13 +221,11 @@ document
 
 
 /* =========================================
-   RADIO — ENERGIA
+   CHECK-IN DE ENERGIA
 ========================================= */
 
 document
-    .querySelectorAll(
-        'input[name="energia"]'
-    )
+    .querySelectorAll('input[name="energia"]')
     .forEach((radio) => {
 
         radio.addEventListener(
@@ -237,7 +245,7 @@ document
 
 
 /* =========================================
-   IR PARA PERGUNTA 02
+   IR PARA PERGUNTA 2
 ========================================= */
 
 proxSecao.addEventListener(
@@ -251,13 +259,11 @@ proxSecao.addEventListener(
 
 
 /* =========================================
-   RADIO — O QUE PRECISA
+   NECESSIDADE
 ========================================= */
 
 document
-    .querySelectorAll(
-        'input[name="preciso"]'
-    )
+    .querySelectorAll('input[name="preciso"]')
     .forEach((radio) => {
 
         radio.addEventListener(
@@ -266,9 +272,9 @@ document
 
                 preciso = radio.value;
 
-                mostrarResultado
-                    .classList
-                    .remove("hidden");
+                mostrarResultado.classList.remove(
+                    "hidden"
+                );
 
             }
         );
@@ -277,7 +283,7 @@ document
 
 
 /* =========================================
-   RESULTADO
+   MOSTRAR RESULTADO
 ========================================= */
 
 mostrarResultado.addEventListener(
@@ -292,12 +298,14 @@ mostrarResultado.addEventListener(
 );
 
 
+/* =========================================
+   GERAR RESULTADO
+========================================= */
+
 function gerarResultado() {
 
     const tituloResultado =
-        document.querySelector(
-            "#resultado h2"
-        );
+        document.querySelector("#resultado h2");
 
 
     if (energia === "baixa") {
@@ -305,7 +313,7 @@ function gerarResultado() {
         tituloResultado.innerHTML =
             `${nomeAluno}, você <em>precisa</em> de uma pausa. 🫠`;
 
-        textoResultado.innerHTML =
+        textoResultado.textContent =
             "Hoje não precisa ser sobre produtividade. " +
             "Faça o necessário e permita-se desacelerar.";
 
@@ -371,7 +379,6 @@ function gerarResultado() {
     textoResultado.textContent =
         "Respire. Diminua o ritmo por alguns minutos " +
         "e lembre que você é mais do que aquilo que produz.";
-
 }
 
 
@@ -381,7 +388,7 @@ function gerarResultado() {
 
 const sortes = [
 
-    "Hoje você está oficialmente autorizado a não ser produtivo por alguns minutos. 😌",
+    "Hoje você está oficialmente pode se permitir não produzir por alguns minutos. 😌",
 
     "Tome uma coisa que você goste e beba devagar. ☕",
 
@@ -399,7 +406,7 @@ const sortes = [
 
     "Hoje você não precisa dar conta de tudo. Escolha apenas o que realmente importa. ✨",
 
-    "Feche o notebook por alguns minutos. O código continuará lá quando você voltar. 💻",
+    "Deligue o monitor por alguns minutos. O código continuará lá quando você voltar. 💻",
 
     "Respire fundo três vezes. Parece simples, mas agora é exatamente o que você precisa. 🌿",
 
@@ -407,13 +414,6 @@ const sortes = [
 
 ];
 
-
-let biscoitoAberto = false;
-
-
-/* =========================================
-   ABRIR BISCOITO
-========================================= */
 
 biscoitoSorte.addEventListener(
     "click",
@@ -438,8 +438,7 @@ biscoitoSorte.addEventListener(
 
         const numeroAleatorio =
             Math.floor(
-                Math.random() *
-                sortes.length
+                Math.random() * sortes.length
             );
 
 
@@ -452,14 +451,15 @@ biscoitoSorte.addEventListener(
             sorteResultado.textContent =
                 `${nomeAluno}, ${sorte}`;
 
+
             sorteResultado.classList.add(
                 "visivel"
             );
 
 
-            continuarSorte
-                .classList
-                .remove("hidden");
+            continuarSorte.classList.remove(
+                "hidden"
+            );
 
 
             biscoitoHint.textContent =
@@ -472,7 +472,7 @@ biscoitoSorte.addEventListener(
 
 
 /* =========================================
-   REINICIAR EXPERIÊNCIA
+   REINICIAR
 ========================================= */
 
 reiniciar.addEventListener(
@@ -486,17 +486,14 @@ reiniciar.addEventListener(
 
 
 /* =========================================
-   INICIAR EXPERIÊNCIA
+   INICIALIZAÇÃO
 ========================================= */
 
 window.addEventListener(
     "load",
     () => {
 
-        pedirNome();
-
-        iniciarCarregamento();
+        nomeInput.focus();
 
     }
 );
-
