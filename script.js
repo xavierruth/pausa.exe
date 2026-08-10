@@ -67,10 +67,6 @@ function confirmarNomeAluno() {
         return;
     }
 
-    /*
-    Substitui todos os "null"
-    pelo nome digitado.
-    */
 
     document
         .querySelectorAll("p, h1, h2, h3, strong")
@@ -85,16 +81,9 @@ function confirmarNomeAluno() {
         });
 
 
-    /*
-    Esconde o campo de nome
-    */
 
     entradaNome.classList.add("hidden");
 
-
-    /*
-    Mostra o loading
-    */
 
     areaCarregamento.classList.remove("hidden");
 
