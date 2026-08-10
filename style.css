@@ -1,0 +1,869 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    color: #29243a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5f1ff 0%,
+            #fdfbff 50%,
+            #eee8ff 100%
+        );
+}
+
+
+/* =========================================
+   TIPOGRAFIA
+========================================= */
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 5.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+p {
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   TELAS
+========================================= */
+
+main {
+    min-height: 100vh;
+}
+
+.screen {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 24px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================================
+   TELA DE CARREGAMENTO
+========================================= */
+
+.screen--loading {
+    background: #17151f;
+
+    color: #f4efff;
+}
+
+.terminal {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 24px;
+
+    font-family: "Space Mono", monospace;
+}
+
+.terminal-texto {
+    margin-bottom: 40px;
+
+    color: #c6a8ff;
+
+    font-size: 0.9rem;
+}
+
+.carregamento-container {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 32px;
+}
+
+.carregamento-barra {
+    flex: 1;
+
+    height: 14px;
+
+    overflow: hidden;
+
+    border: 1px solid #5e5475;
+    border-radius: 3px;
+
+    background: #24202f;
+}
+
+.carregamento-progresso {
+    display: block;
+
+    width: 0;
+    height: 100%;
+
+    background: #b995ff;
+
+    transition: width 0.05s linear;
+}
+
+#carregamento-porcentagem {
+    min-width: 45px;
+
+    color: #b995ff;
+
+    font-size: 0.85rem;
+}
+
+.terminal-check {
+    margin-bottom: 32px;
+}
+
+.terminal-check p {
+    margin-bottom: 8px;
+
+    font-size: 0.8rem;
+}
+
+.sucesso {
+    color: #8ee6b2;
+}
+
+.terminal-mensagem {
+    color: #aaa2b8;
+
+    font-size: 0.8rem;
+}
+
+.terminal-mensagem strong {
+    color: #d5baff;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    width: 100%;
+    max-width: 620px;
+
+    padding: clamp(28px, 6vw, 56px);
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(130, 100, 180, 0.15);
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(71, 46, 112, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.ilustracao {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 24px;
+
+    font-size: 2.5rem;
+
+    border-radius: 50%;
+
+    background: #eee6ff;
+}
+
+.card header {
+    margin-bottom: 28px;
+}
+
+.card h1,
+.card h2 {
+    color: #302742;
+}
+
+.vendo {
+    margin-bottom: 12px;
+
+    color: #8061b3;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+.intro {
+    margin-bottom: 24px;
+
+    font-size: 1.05rem;
+}
+
+.intro p + p {
+    margin-top: 14px;
+}
+
+.mutado {
+    color: #81798d;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.primary-button,
+.secondary-button {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 16px 22px;
+
+    border-radius: 14px;
+
+    font-family: monospace;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.primary-button {
+    border: none;
+
+    color: white;
+
+    background: #8061b3;
+
+    box-shadow:
+        0 8px 20px rgba(128, 97, 179, 0.25);
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+
+    background: #6f50a0;
+
+    box-shadow:
+        0 12px 24px rgba(128, 97, 179, 0.3);
+}
+
+.secondary-button {
+    border: 1px solid #b8a5d6;
+
+    color: #6d5298;
+
+    background: transparent;
+}
+
+.secondary-button:hover {
+    transform: translateY(-2px);
+
+    background: #f1ebff;
+}
+
+
+/* =========================================
+   RADIO BUTTONS
+========================================= */
+
+fieldset {
+    border: 0;
+}
+
+legend {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+.opcoes {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+.opcoes--dois {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.opcoes-btn {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 130px;
+
+    padding: 18px 12px;
+
+    border: 2px solid #e5dff0;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    color: #4b4358;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.opcoes-btn:hover {
+    transform: translateY(-3px);
+
+    border-color: #b59ad9;
+
+    background: #faf8ff;
+
+    box-shadow:
+        0 8px 20px rgba(91, 63, 133, 0.1);
+}
+
+/* Esconde o radio */
+
+.opcoes-btn input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+/* Opção selecionada */
+
+.opcoes-btn:has(input:checked) {
+    border-color: #8061b3;
+
+    background: #f1ebff;
+
+    box-shadow:
+        0 8px 24px rgba(128, 97, 179, 0.15);
+}
+
+.opcoes-btn:has(input:checked) .opcoes-icon {
+    transform: scale(1.12);
+}
+
+.opcoes-icon {
+    margin-bottom: 12px;
+
+    font-size: 2rem;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+.resultado-card {
+    text-align: center;
+}
+
+.resultado-card h2 {
+    margin-bottom: 18px;
+}
+
+.resultado-card h2 em {
+    color: #8061b3;
+}
+
+#texto-resultado {
+    color: #62596d;
+
+    font-size: 1rem;
+}
+
+.missao {
+    margin-top: 28px;
+
+    padding: 22px;
+
+    text-align: left;
+
+    border-radius: 18px;
+
+    background: #f7f3ff;
+}
+
+.missao h3 {
+    margin-bottom: 14px;
+
+    color: #6d5298;
+}
+
+.missao ul {
+    padding-left: 20px;
+}
+
+.missao li {
+    margin-bottom: 8px;
+
+    color: #5f5669;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   BISCOITO DA SORTE
+========================================= */
+
+.biscoito-card {
+    overflow: hidden;
+}
+
+.biscoito-btn {
+    position: relative;
+
+    display: block;
+
+    width: 170px;
+    height: 140px;
+
+    margin: 40px auto 20px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.biscoito {
+    position: absolute;
+
+    top: 25px;
+
+    width: 95px;
+    height: 75px;
+
+    background: #d99a52;
+
+    border: 4px solid #9c6530;
+
+    box-shadow:
+        inset 0 -8px 0 rgba(121, 70, 29, 0.15);
+
+    transition:
+        transform 0.6s ease;
+}
+
+.biscoito-left {
+    left: 10px;
+
+    border-radius:
+        70% 25% 60% 45%;
+
+    transform: rotate(25deg);
+}
+
+.biscoito-right {
+    right: 10px;
+
+    border-radius:
+        25% 70% 45% 60%;
+
+    transform: rotate(-25deg);
+}
+
+.biscoito-papel {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 38px;
+    left: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 42px;
+
+    transform:
+        translateX(-50%)
+        rotate(-4deg);
+
+    color: #8c633d;
+
+    background: #fff4d8;
+
+    border: 2px solid #d9bd8d;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.4s ease;
+}
+
+.biscoito-btn.aberto .biscoito-left {
+    transform:
+        translateX(-28px)
+        rotate(10deg);
+}
+
+.biscoito-btn.aberto .biscoito-right {
+    transform:
+        translateX(28px)
+        rotate(-10deg);
+}
+
+.biscoito-btn.aberto .biscoito-papel {
+    transform:
+        translate(-50%, -25px)
+        rotate(-4deg)
+        scale(1.08);
+}
+
+.biscoito-hint {
+    color: #847b8d;
+
+    font-size: 0.8rem;
+}
+
+.sorte-resultado {
+    display: block;
+
+    max-height: 0;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    color: #554466;
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    transition:
+        max-height 0.5s ease,
+        opacity 0.5s ease,
+        margin 0.5s ease;
+}
+
+.sorte-resultado.visivel {
+    max-height: 250px;
+
+    margin-top: 24px;
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   TELA FINAL
+========================================= */
+
+.pixel-heart {
+    margin-bottom: 24px;
+
+    color: #d77b9d;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 3rem;
+}
+
+.final-card h2 {
+    margin-bottom: 20px;
+}
+
+.final-card > p {
+    color: #62596d;
+}
+
+.final-card > strong {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #6d5298;
+
+    line-height: 1.5;
+}
+
+.commit {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border-radius: 16px;
+
+    background: #1c1923;
+
+    color: #aaa2b8;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 0.72rem;
+}
+
+.commit p {
+    margin-bottom: 8px;
+}
+
+.commit-sucesso {
+    margin-top: 16px;
+
+    color: #d4a7ff;
+}
+
+.obrigada {
+    margin-top: 28px;
+
+    color: #8061b3 !important;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   UTILITÁRIOS
+========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+
+    .screen {
+        padding: 16px;
+    }
+
+    .card {
+        padding: 30px 22px;
+
+        border-radius: 22px;
+    }
+
+    .opcoes {
+        grid-template-columns: 1fr;
+    }
+
+    .opcoes--dois {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .opcoes-btn {
+        min-height: 110px;
+    }
+
+    .terminal {
+        padding: 10px;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 480px) {
+
+    .screen {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .intro {
+        font-size: 0.95rem;
+    }
+
+    .opcoes--dois {
+        grid-template-columns: 1fr;
+    }
+
+    .opcoes-btn {
+        min-height: 90px;
+
+        flex-direction: row;
+
+        gap: 14px;
+    }
+
+    .opcoes-icon {
+        margin-bottom: 0;
+    }
+
+    .carregamento-container {
+        gap: 8px;
+    }
+
+    #carregamento-porcentagem {
+        min-width: 40px;
+
+        font-size: 0.75rem;
+    }
+
+    .terminal-check p {
+        font-size: 0.72rem;
+    }
+
+    .biscoito-btn {
+        transform: scale(0.9);
+    }
+
+    .missao {
+        padding: 18px;
+    }
+}
+
+
+/* =========================================
+   REDUÇÃO DE MOVIMENTO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+    }
+}
+
