@@ -1,32 +1,31 @@
-/* =========================================
-   RESET
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
+    background-color: #17151f;
 }
 
-html, body{
+
+html, body {
     width: 100%;
     min-height: 100%;
     margin: 0;
     padding: 0;
 }
 
+
 body {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    margin:0;
+    margin: 0;
 
     overflow-x: hidden;
-    
 
     font-family: 'Courier New', Courier, monospace;
 
@@ -37,26 +36,28 @@ body {
 
 
 /* =========================================
-   TIPOGRAFIA
+   Tipografia
 ========================================= */
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     line-height: 1.15;
 }
+
 
 h1 {
     font-size: clamp(3rem, 10vw, 5.5rem);
 }
 
+
 h2 {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
 }
 
+
 h3 {
     font-size: 1.1rem;
 }
+
 
 p {
     line-height: 1.6;
@@ -64,15 +65,15 @@ p {
 
 
 /* =========================================
-   TELAS
+   Telas
 ========================================= */
 
 main {
-    width:100%;
+    width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    
 }
+
 
 .screen {
     display: none;
@@ -89,112 +90,208 @@ main {
     box-sizing: border-box;
 }
 
+
 .screen.active {
     display: flex;
 }
 
 
 /* =========================================
-   TERMINAL
+   Tela inicial
 ========================================= */
 
 .screen--loading {
     width: 100%;
+
+    min-height: 100vh;
     min-height: 100dvh;
-    background: #17151f;
 
-    color: #f4efff;
-}
+    background:
+        radial-gradient(
+            circle at top,
+            #ded4e8 0%,
+            #d2c5dd 48%,
+            #c5b7d2 100%
+        );
 
-.terminal {
-    width: 100%;
-    max-width: 650px;
-
-    padding: 24px;
-
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.terminal-texto {
-    margin-bottom: 40px;
-
-    color: #c6a8ff;
-
-    font-size: 0.9rem;
+    color: #3e3447;
 }
 
 
 /* =========================================
-   ENTRADA DO NOME
+   Terminal
+========================================= */
+
+.terminal {
+    width: 100%;
+    max-width: 720px;
+
+    padding: 36px;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    background: rgba(241, 235, 246, 0.68);
+
+    border: 1px solid rgba(83, 63, 100, 0.22);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 55px rgba(52, 35, 65, 0.14);
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================
+   Topo tela inicial
+========================================= */
+
+.terminal-topo {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 44px;
+}
+
+
+.projeto-identidade {
+    flex: 1;
+}
+
+
+.projeto-kicker {
+    margin-bottom: 8px;
+    color: #73568c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.projeto-titulo {
+    color: #382b43;
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: -0.06em;
+}
+
+.projeto-titulo span {
+    color: #805e9c;
+}
+
+
+/* =========================================
+   BTN claro e escuro
+========================================= */
+
+.tema-button {
+    flex-shrink: 0;
+
+    padding: 10px 15px;
+    border: 1px solid #9279a6;
+    border-radius: 8px;
+
+    color: #594269;
+
+    background: rgba(226, 216, 235, 0.78);
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.tema-button:hover {
+    transform: translateY(-2px);
+    background: #d6c7e1;
+    border-color: #775d8d;
+}
+
+
+/* =========================================
+   Texto terminal
+========================================= */
+
+.terminal-texto {
+    margin-bottom: 40px;
+    color: #6d4f85;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   Nome do usuario
 ========================================= */
 
 .entrada-nome {
     margin-bottom: 35px;
 }
 
+
 .entrada-nome label {
     display: block;
-
     margin-bottom: 14px;
-
-    color: #aaa2b8;
-
-    font-size: 0.85rem;
+    color: #514458;
+    font-size: 1rem;
+    font-weight: 600;
 }
+
 
 .terminal-input {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
-    border-bottom: 1px solid #5e5475;
-
+    border-bottom: 2px solid #8f789e;
     padding-bottom: 10px;
 }
 
-.terminal-input span {
-    color: #8ee6b2;
 
-    font-size: 1rem;
+.terminal-input span {
+    color: #527963;
+    font-size: 1.15rem;
+    font-weight: 700;
 }
+
 
 .terminal-input input {
     width: 100%;
-
     border: none;
     outline: none;
-
-    color: #f4efff;
+    color: #352b3b;
 
     background: transparent;
-
     font-family: 'Courier New', Courier, monospace;
-
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
+
 
 .terminal-input input::placeholder {
-    color: #665e70;
+    color: #786a80;
 }
+
 
 .terminal-button {
     margin-top: 20px;
-
-    padding: 10px 16px;
-
-    border: 1px solid #6f6380;
+    padding: 11px 17px;
+    border: 1px solid #80678f;
     border-radius: 5px;
 
-    color: #c6a8ff;
-
-    background: transparent;
+    color: #60456f;
+    background: rgba(225, 215, 234, 0.65);
 
     font-family: 'Courier New', Courier, monospace;
-
-    font-size: 0.8rem;
-
+    font-size: 0.95rem;
+    font-weight: 700;
     cursor: pointer;
 
     transition:
@@ -202,39 +299,34 @@ main {
         border-color 0.2s ease;
 }
 
-.terminal-button:hover {
-    border-color: #b995ff;
 
-    background: #282331;
+.terminal-button:hover {
+    border-color: #725383;
+    background: #d6c7e0;
 }
 
 
 /* =========================================
-   CARREGAMENTO
+   Carregamento
 ========================================= */
 
 .carregamento-container {
     display: flex;
-
     align-items: center;
-
     gap: 16px;
-
     margin-bottom: 32px;
 }
 
+
 .carregamento-barra {
     flex: 1;
-
     height: 14px;
-
     overflow: hidden;
-
-    border: 1px solid #5e5475;
+    border: 1px solid #927da0;
     border-radius: 3px;
-
-    background: #24202f;
+    background: #c9bbd2;
 }
+
 
 .carregamento-progresso {
     display: block;
@@ -242,50 +334,191 @@ main {
     width: 0;
     height: 100%;
 
-    background: #b995ff;
+    background: #80609a;
 
     transition: width 0.05s linear;
 }
 
+
 #carregamento-porcentagem {
-    min-width: 45px;
-
-    color: #b995ff;
-
-    font-size: 0.85rem;
+    min-width: 50px;
+    color: #644875;
+    font-size: 1rem;
+    font-weight: 700;
 }
+
 
 .terminal-check {
     margin-bottom: 32px;
 }
 
+
 .terminal-check p {
     margin-bottom: 8px;
-
-    font-size: 0.8rem;
+    font-size: 0.95rem;
 }
 
-.sucesso {
+
+.screen--loading .sucesso {
+    color: #416f51;
+}
+
+
+.screen--loading .alerta {
+    color: #8d6818;
+}
+
+
+.terminal-mensagem {
+    color: #5e5165;
+    font-size: 0.95rem;
+}
+
+
+.terminal-mensagem strong {
+    color: #704b88;
+}
+
+
+/* =========================================
+   Modo escuro
+========================================= */
+
+body.tema-escuro .screen--loading {
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2e2836 0%,
+            #211d28 50%,
+            #17151f 100%
+        );
+
+    color: #f4efff;
+}
+
+
+body.tema-escuro .terminal {
+    background: rgba(26, 23, 32, 0.82);
+
+    border-color: rgba(198, 168, 255, 0.18);
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+body.tema-escuro .projeto-kicker {
+    color: #bd9bdd;
+}
+
+
+body.tema-escuro .projeto-titulo {
+    color: #f4efff;
+}
+
+
+body.tema-escuro .projeto-titulo span {
+    color: #c6a8ff;
+}
+
+
+body.tema-escuro .tema-button {
+    border-color: #6f6380;
+    color: #d9c4ff;
+    background: #2b2633;
+}
+
+
+body.tema-escuro .tema-button:hover {
+    border-color: #9a82b8;
+    background: #37303f;
+}
+
+
+body.tema-escuro .terminal-texto {
+    color: #c6a8ff;
+}
+
+
+body.tema-escuro .entrada-nome label {
+    color: #c8c0d0;
+}
+
+
+body.tema-escuro .terminal-input {
+    border-bottom-color: #5e5475;
+}
+
+
+body.tema-escuro .terminal-input span {
     color: #8ee6b2;
 }
 
-.alerta{
+
+body.tema-escuro .terminal-input input {
+    color: #f4efff;
+}
+
+
+body.tema-escuro .terminal-input input::placeholder {
+    color: #766d80;
+}
+
+
+body.tema-escuro .terminal-button {
+    border-color: #6f6380;
+    color: #c6a8ff;
+    background: transparent;
+}
+
+
+body.tema-escuro .terminal-button:hover {
+    border-color: #b995ff;
+
+    background: #282331;
+}
+
+
+body.tema-escuro .carregamento-barra {
+    border-color: #5e5475;
+
+    background: #24202f;
+}
+
+
+body.tema-escuro .carregamento-progresso {
+    background: #b995ff;
+}
+
+
+body.tema-escuro #carregamento-porcentagem {
+    color: #b995ff;
+}
+
+
+body.tema-escuro .screen--loading .sucesso {
+    color: #8ee6b2;
+}
+
+
+body.tema-escuro .screen--loading .alerta {
     color: #e6cf8e;
 }
 
-.terminal-mensagem {
-    color: #aaa2b8;
 
-    font-size: 0.8rem;
+body.tema-escuro .terminal-mensagem {
+    color: #aaa2b8;
 }
 
-.terminal-mensagem strong {
+
+body.tema-escuro .terminal-mensagem strong {
     color: #d5baff;
 }
 
 
 /* =========================================
-   CARDS
+   Cards
 ========================================= */
 
 .card {
@@ -304,87 +537,82 @@ main {
 
     box-shadow:
         0 20px 60px rgba(71, 46, 112, 0.12);
+
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
+
 
 .ilustracao {
     display: flex;
 
     align-items: center;
     justify-content: center;
-
     width: 72px;
     height: 72px;
 
     margin: 0 auto 24px;
 
     font-size: 2.5rem;
-
     border-radius: 50%;
-
     background: #eee6ff;
 }
+
 
 .card header {
     margin-bottom: 28px;
 }
 
+
 .card h2 {
     color: #302742;
 }
+
 
 .vendo {
     margin-bottom: 12px;
 
     color: #8061b3;
-
     font-family: 'Courier New', Courier, monospace;
-
     font-size: 0.7rem;
-
     font-weight: 700;
-
     letter-spacing: 0.12em;
 
     text-transform: uppercase;
 }
 
+
 .intro {
     margin-bottom: 24px;
-
     font-size: 1.05rem;
 }
+
 
 .intro p + p {
     margin-top: 14px;
 }
 
+
 .mutado {
     color: #81798d;
-
     font-size: 0.9rem;
 }
 
 
 /* =========================================
-   BOTÕES
+   Botões
 ========================================= */
 
-.primary-button,
-.secondary-button {
+.primary-button, .secondary-button {
     width: 100%;
 
     margin-top: 28px;
-
     padding: 16px 22px;
 
     border-radius: 14px;
 
     font-family: 'Courier New', Courier, monospace;
-
     font-size: 0.95rem;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -395,45 +623,44 @@ main {
         background 0.2s ease;
 }
 
+
 .primary-button {
     border: none;
 
     color: white;
-
     background: #8061b3;
-
     box-shadow:
         0 8px 20px rgba(128, 97, 179, 0.25);
 }
 
+
 .primary-button:hover {
     transform: translateY(-2px);
-
     background: #6f50a0;
 }
 
+
 .secondary-button {
     border: 1px solid #b8a5d6;
-
     color: #6d5298;
-
     background: transparent;
 }
 
+
 .secondary-button:hover {
     transform: translateY(-2px);
-
     background: #f1ebff;
 }
 
 
 /* =========================================
-   RADIO BUTTONS
+   Radio buttons
 ========================================= */
 
 fieldset {
     border: 0;
 }
+
 
 legend {
     position: absolute;
@@ -446,6 +673,7 @@ legend {
     clip: rect(0, 0, 0, 0);
 }
 
+
 .opcoes {
     display: grid;
 
@@ -456,9 +684,11 @@ legend {
     margin-top: 24px;
 }
 
+
 .opcoes--dois {
     grid-template-columns: repeat(2, 1fr);
 }
+
 
 .opcoes-btn {
     position: relative;
@@ -495,6 +725,7 @@ legend {
         box-shadow 0.2s ease;
 }
 
+
 .opcoes-btn:hover {
     transform: translateY(-3px);
 
@@ -502,6 +733,7 @@ legend {
 
     background: #faf8ff;
 }
+
 
 .opcoes-btn input {
     position: absolute;
@@ -512,6 +744,7 @@ legend {
     opacity: 0;
 }
 
+
 .opcoes-btn:has(input:checked) {
     border-color: #8061b3;
 
@@ -521,9 +754,11 @@ legend {
         0 8px 24px rgba(128, 97, 179, 0.15);
 }
 
+
 .opcoes-btn:has(input:checked) .opcoes-icon {
     transform: scale(1.12);
 }
+
 
 .opcoes-icon {
     margin-bottom: 12px;
@@ -535,20 +770,23 @@ legend {
 
 
 /* =========================================
-   RESULTADO
+   Resultado
 ========================================= */
 
 .resultado-card h2 {
     margin-bottom: 18px;
 }
 
+
 .resultado-card h2 em {
     color: #8061b3;
 }
 
+
 #texto-resultado {
     color: #62596d;
 }
+
 
 .missao {
     margin-top: 28px;
@@ -562,15 +800,18 @@ legend {
     background: #f7f3ff;
 }
 
+
 .missao h3 {
     margin-bottom: 14px;
 
     color: #6d5298;
 }
 
+
 .missao ul {
     padding-left: 20px;
 }
+
 
 .missao li {
     margin-bottom: 8px;
@@ -580,12 +821,13 @@ legend {
 
 
 /* =========================================
-   BISCOITO
+   Biscoito
 ========================================= */
 
 .biscoito-card {
     overflow: hidden;
 }
+
 
 .biscoito-btn {
     position: relative;
@@ -604,6 +846,7 @@ legend {
     cursor: pointer;
 }
 
+
 .biscoito {
     position: absolute;
 
@@ -620,6 +863,7 @@ legend {
         transform 0.6s ease;
 }
 
+
 .biscoito-left {
     left: 10px;
 
@@ -629,6 +873,7 @@ legend {
     transform: rotate(25deg);
 }
 
+
 .biscoito-right {
     right: 10px;
 
@@ -637,6 +882,7 @@ legend {
 
     transform: rotate(-25deg);
 }
+
 
 .biscoito-papel {
     position: absolute;
@@ -672,17 +918,20 @@ legend {
         transform 0.6s ease;
 }
 
+
 .biscoito-btn.aberto .biscoito-left {
     transform:
         translateX(-28px)
         rotate(10deg);
 }
 
+
 .biscoito-btn.aberto .biscoito-right {
     transform:
         translateX(28px)
         rotate(-10deg);
 }
+
 
 .biscoito-btn.aberto .biscoito-papel {
     transform:
@@ -691,11 +940,13 @@ legend {
         scale(1.08);
 }
 
+
 .biscoito-hint {
     color: #847b8d;
 
     font-size: 0.8rem;
 }
+
 
 .sorte-resultado {
     display: block;
@@ -722,6 +973,7 @@ legend {
         margin 0.5s ease;
 }
 
+
 .sorte-resultado.visivel {
     max-height: 250px;
 
@@ -732,7 +984,7 @@ legend {
 
 
 /* =========================================
-   FINAL
+   Final
 ========================================= */
 
 .pixel-heart {
@@ -745,9 +997,11 @@ legend {
     font-size: 3rem;
 }
 
+
 .final-card h2 {
     margin-bottom: 20px;
 }
+
 
 .final-card > strong {
     display: block;
@@ -759,33 +1013,34 @@ legend {
     line-height: 1.5;
 }
 
+
 .commit {
     margin-top: 30px;
 
     padding: 20px;
 
     text-align: left;
-
     border-radius: 16px;
 
     background: #1c1923;
-
     color: #aaa2b8;
 
     font-family: 'Courier New', Courier, monospace;
-
     font-size: 0.72rem;
 }
+
 
 .commit p {
     margin-bottom: 8px;
 }
+
 
 .commit-sucesso {
     margin-top: 16px;
 
     color: #d4a7ff;
 }
+
 
 .obrigada {
     margin-top: 28px;
@@ -797,12 +1052,13 @@ legend {
 
 
 /* =========================================
-   UTILITÁRIOS
+   Utilitarios
 ========================================= */
 
 .hidden {
     display: none !important;
 }
+
 
 .sr-only {
     position: absolute;
@@ -824,7 +1080,7 @@ legend {
 
 
 /* =========================================
-   RESPONSIVIDADE
+   Responsividade
 ========================================= */
 
 @media (max-width: 700px) {
@@ -833,27 +1089,48 @@ legend {
         padding: 16px;
     }
 
+
     .card {
         padding: 30px 22px;
 
         border-radius: 22px;
     }
 
+
     .opcoes {
         grid-template-columns: 1fr;
     }
+
 
     .opcoes--dois {
         grid-template-columns: repeat(2, 1fr);
     }
 
+
     .opcoes-btn {
         min-height: 110px;
     }
 
+
     .terminal {
-        padding: 10px;
+        padding: 26px 20px;
     }
+
+
+    /* Tela inicial */
+    .terminal-topo {
+        flex-direction: column;
+
+        gap: 18px;
+
+        margin-bottom: 36px;
+    }
+
+
+    .tema-button {
+        align-self: flex-start;
+    }
+
 }
 
 
@@ -863,21 +1140,26 @@ legend {
         padding: 12px;
     }
 
+
     .card {
         padding: 28px 18px;
     }
+
 
     h2 {
         font-size: 1.7rem;
     }
 
+
     .intro {
         font-size: 0.95rem;
     }
 
+
     .opcoes--dois {
         grid-template-columns: 1fr;
     }
+
 
     .opcoes-btn {
         min-height: 90px;
@@ -887,25 +1169,42 @@ legend {
         gap: 14px;
     }
 
+
     .opcoes-icon {
         margin-bottom: 0;
     }
+
 
     .carregamento-container {
         gap: 8px;
     }
 
+
     #carregamento-porcentagem {
         min-width: 40px;
 
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 
+
     .terminal-check p {
-        font-size: 0.72rem;
+        font-size: 0.85rem;
     }
+
 
     .biscoito-btn {
         transform: scale(0.9);
     }
+
+
+    /* Tela inicial */
+    .projeto-titulo {
+        font-size: 2.8rem;
+    }
+
+
+    .projeto-kicker {
+        font-size: 0.78rem;
+    }
+
 }

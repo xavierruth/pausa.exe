@@ -2,267 +2,659 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
     <link rel="icon" href="/Assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 
-    <meta name="theme-color" content="#17151f">
+    <meta name="theme-color" content="#ddd3e7">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
     <link rel="manifest" href="site.webmanifest">
 
     <title>PAUSA.exe</title>
 </head>
-<body>
-    <main>
-        <!-- Tela Inicial -->
 
-        <section id="carregamento" class="screen screen--loading active">
+<body>
+
+    <main>
+
+        <!-- Tela inicial -->
+
+        <section
+            id="carregamento"
+            class="screen screen--loading active">
+
             <div class="terminal">
 
-                <header>
-                    <p class="terminal-texto"> &gt; npm run: cuidando-de-mim</p>
-                    <h1 class="sr-only"> Inicializando meu autocuidado ♥</h1>
-                </header>
 
-                <div id="entrada-nome" class="entrada-nome">
-                    <label for="nome">Digite seu nome para continuar:</label>
-                    <div class="terminal-input">
-                        <span>&gt;</span>
-                        <input type="text" id="nome"
-                        name="nome" placeholder="seunome"
-                        autocomplete="off">
+                <div class="terminal-topo">
+
+                    <div class="projeto-identidade">
+
+                        <p class="projeto-kicker">
+                            Agosto Lilás • respeito, acolhimento e conscientização
+                        </p>
+
+                        <h1 class="projeto-titulo">
+                            PAUSA<span>.exe</span>
+                        </h1>
+
                     </div>
-                    <button id="confirmar-nome" type="button"
-                    class="terminal-button"> Enter ↵</button>
+
+                    <button id="alternar-tema"
+                        class="tema-button"
+                        type="button"
+                        aria-label="Alternar entre modo claro e escuro"
+                        aria-pressed="false">
+                        🌙 Modo escuro
+                    </button>
+
                 </div>
 
-                <div id="area-carregamento" class="area-carregamento hidden"> 
+
+                <header>
+
+                    <p class="terminal-texto">
+                        &gt; npm run: modo-de-mim
+                    </p>
+
+                    <h1 class="sr-only">
+                        Inicializando meu autocuidado ♥
+                    </h1>
+
+                </header>
+
+
+                <div id="entrada-nome"
+                    class="entrada-nome">
+
+                    <label for="nome">
+                        Digite seu nome para continuar:
+                    </label>
+
+
+                    <div class="terminal-input">
+
+                        <span>&gt;</span>
+
+                        <input type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="seu nome ou apelido, exemplo: Mathias, Nara..."
+                            autocomplete="off">
+
+                    </div>
+
+
+                    <button id="confirmar-nome"
+                        type="button"
+                        class="terminal-button">
+                        Enter ↵
+                    </button>
+
+                </div>
+
+
+                <div id="area-carregamento"
+                    class="area-carregamento hidden">
+
                     <div class="carregamento-container">
 
                         <div class="carregamento-barra">
-                            <span id="carregamento-progresso" 
-                            class="carregamento-progresso"></span>
+
+                            <span id="carregamento-progresso"
+                                class="carregamento-progresso"></span>
+
                         </div>
 
-                        <output id="carregamento-porcentagem">0%</output>
+                        <output id="carregamento-porcentagem">
+                            0%
+                        </output>
+
                     </div>
+
                 </div>
+
 
                 <div class="terminal-check">
-                    <p class="sucesso">✔️ projetos</p>
-                    <p class="sucesso">✔️ estudos de html e css</p>
-                    <p class="sucesso">✔️ amigos</p>
-                    <p class="alerta">⚠️ autocuidado em alerta!</p>
+
+                    <p class="sucesso">
+                        ✔️ projetos
+                    </p>
+
+                    <p class="sucesso">
+                        ✔️ estudos de html e css
+                    </p>
+
+                    <p class="sucesso">
+                        ✔️ amigos
+                    </p>
+
+                    <p class="alerta">
+                        ⚠️ autocuidado em alerta!
+                    </p>
+
                 </div>
-                <p class="terminal-mensagem">Instalando pacote <strong>autocuidado@1.3.6</strong>...</p>
+
+
+                <p class="terminal-mensagem">
+                    Instalando pacote
+                    <strong>autocuidado@1.3.6</strong>...
+                </p>
+
             </div>
+
         </section>
 
-        <!-- Tela de bem-vindos -->
+
+        <!-- Tela bem-vindos -->
 
         <section id="bemvindos" class="screen">
+
             <article class="card">
-                <div class="ilustracao">🌱</div>
-            
+
+                <div class="ilustracao">
+                    🌱
+                </div>
+
 
                 <header>
-                    <p class="vendo"> Vamos dar uma...</p>
-                    <h2>Pausa.</h2>
+
+                    <p class="vendo">
+                        Vamos dar uma...
+                    </p>
+
+                    <h2>
+                        Pausa.
+                    </h2>
+
                 </header>
+
 
                 <div class="intro">
-                    <p>null, você passa o dia se desdobrando para dar conta de tudo. <br>
-                        Trabalho, estágio, estudos, cursos, enventos... 
-                        todos os dias você está construindo e apredendo novas tecnologias...</p>
-                    <p>Hoje, null, é o seu dia de deixar a tecnologia cuidar de você.</p>
+
+                    <p>
+                        null, você passa o dia se desdobrando para dar conta de tudo.
+                        <br>
+
+                        Trabalho, estágio, estudos, cursos, eventos...
+                        todos os dias você está construindo e apredendo novas tecnologias...
+                    </p>
+
+                    <p>
+                        Hoje, null, é o seu dia de deixar a tecnologia cuidar de você.
+                    </p>
+
                 </div>
 
-                <p class="mutado">Hoje é um dia especial! O dia do estudante. Então, 
-                    não precisa se preocupar de dar conta de tudo agora. <br>
+
+                <p class="mutado">
+
+                    Essa é uma semana especial de carinho, autocuidado e
+                    valorização dos nossos esforços, null.
+                    Estamos no Agosto Lilás e também comemorando um dia muito especial...
+                    o Dia do Estudante, <em>11/08</em>.
+                    <br>
+
+                    Então, não precisa se preocupar de dar conta de tudo agora.
+                    <br>
+
                     Fica aqui só por uns minutinhos.
+
                 </p>
+
                 <button class="primary-button"
-                type="button" data-next="checkin">
-                Comerçar meu momento ♥</button>
+                    type="button"
+                    data-next="checkin">
+                    Comerçar meu momento ♥
+                </button>
 
             </article>
+
         </section>
 
-        <!-- Tela de checkin-->
+        <!-- Tela de check-in -->
 
         <section id="checkin" class="screen">
+
             <article class="card">
+
                 <header>
-                    <p class="passos">1 / 2</p>
-                    <h2>null, como você está hoje?</h2>
+
+                    <p class="passos">
+                        1 / 2
+                    </p>
+
+                    <h2>
+                        null, como você está hoje?
+                    </h2>
+
                 </header>
 
+
                 <form>
+
                     <fieldset>
-                        <legend>Escolha abaixo a opção que melhor te representa:</legend>
+
+                        <legend>
+                            Escolha abaixo a opção que melhor te representa:
+                        </legend>
+
+
                         <div class="opcoes">
-                            <label class="opcoes-btn">
-                                <input type="radio" name="energia" value="alta">
-                                <span class="opcoes-icon">🔋</span>
-                                <span>100%</span>
-                            </label>
 
                             <label class="opcoes-btn">
-                                <input type="radio" name="energia" value="media">
-                                <span class="opcoes-icon">🪫</span>
-                                <span>50%</span>
+
+                                <input type="radio"
+                                    name="energia"
+                                    value="alta">
+
+                                <span class="opcoes-icon">
+                                    🔋
+                                </span>
+
+                                <span>
+                                    100%
+                                </span>
+
                             </label>
 
+
                             <label class="opcoes-btn">
-                                <input type="radio" name="energia" value="baixa">
-                                <span class="opcoes-icon">💀</span>
-                                <span>Só estou existindo</span>
+
+                                <input type="radio"
+                                    name="energia"
+                                    value="media">
+
+                                <span class="opcoes-icon">
+                                    🪫
+                                </span>
+
+                                <span>
+                                    50%
+                                </span>
+
                             </label>
+
+
+                            <label class="opcoes-btn">
+
+                                <input type="radio"
+                                    name="energia"
+                                    value="baixa">
+
+                                <span class="opcoes-icon">
+                                    💀
+                                </span>
+
+                                <span>
+                                    Só estou existindo
+                                </span>
+
+                            </label>
+
                         </div>
+
                     </fieldset>
+
                 </form>
 
-                <button id="prox-secao" type="button" 
-                class="secondary-button hidden">Continuar</button>
+
+                <button id="prox-secao"
+                    type="button"
+                    class="secondary-button hidden">
+                    Continuar
+                </button>
 
             </article>
+
         </section>
 
-        <!-- Tela de necessidade-->
+
+        <!-- Tela do que preciso -->
 
         <section id="pergunta" class="screen">
+
             <article class="card">
+
                 <header>
-                    <p class="passos">2 / 2</p>
-                    <h2>null, o que sua mente está te pedindo?</h2>
+
+                    <p class="passos">
+                        2 / 2
+                    </p>
+
+                    <h2>
+                        null, o que sua mente está te pedindo?
+                    </h2>
+
                 </header>
 
                 <form>
+
                     <fieldset>
-                        <legend>Escolha o que você precisa hoje</legend>
+
+                        <legend>
+                            Escolha o que você precisa hoje
+                        </legend>
+
 
                         <div class="opcoes opcoes--dois">
-                            <label class="opcoes-btn">
-                                <input type="radio" name="preciso" value="descanso">
-                                <span class="opcoes-icon">😴</span>
-                                <span>Descanso</span>
-                            </label>
 
                             <label class="opcoes-btn">
-                                <input type="radio" name="preciso" value="diversao">
-                                <span class="opcoes-icon">🎮</span>
-                                <span>Diversão</span>
+
+                                <input
+                                    type="radio"
+                                    name="preciso"
+                                    value="descanso">
+
+                                <span class="opcoes-icon">
+                                    😴
+                                </span>
+
+                                <span>
+                                    Descanso
+                                </span>
+
                             </label>
 
-                            <label class="opcoes-btn">
-                                <input type="radio" name="preciso" value="paz">
-                                <span class="opcoes-icon">🧘</span>
-                                <span>Tranquilidade</span>
-                            </label>
 
                             <label class="opcoes-btn">
-                                <input type="radio" name="preciso" value="comida">
-                                <span class="opcoes-icon">🍔</span>
-                                <span>Comidinhas gostosas</span>
+
+                                <input
+                                    type="radio"
+                                    name="preciso"
+                                    value="diversao">
+
+                                <span class="opcoes-icon">
+                                    🎮
+                                </span>
+
+                                <span>
+                                    Diversão
+                                </span>
+
                             </label>
+
+
+                            <label class="opcoes-btn">
+
+                                <input
+                                    type="radio"
+                                    name="preciso"
+                                    value="paz">
+
+                                <span class="opcoes-icon">
+                                    🧘
+                                </span>
+
+                                <span>
+                                    Tranquilidade
+                                </span>
+
+                            </label>
+
+
+                            <label class="opcoes-btn">
+
+                                <input
+                                    type="radio"
+                                    name="preciso"
+                                    value="comida">
+
+                                <span class="opcoes-icon">
+                                    🍔
+                                </span>
+
+                                <span>
+                                    Comidinhas gostosas
+                                </span>
+
+                            </label>
+
                         </div>
+
                     </fieldset>
+
                 </form>
 
-                <button id="mostrar-resultado" type="button" 
-                class="secondary-button hidden">Ver o resultado</button>
+
+                <button
+                    id="mostrar-resultado"
+                    type="button"
+                    class="secondary-button hidden">
+                    Ver o resultado
+                </button>
+
             </article>
+
         </section>
 
-        <!-- Tela de resultados-->
+        <!-- Tela de resultado -->
 
         <section id="resultado" class="screen">
+
             <article class="card resultado-card">
-                <div class="ilustracao">💜</div>
 
-                <p class="vendo"> Seu resultado</p>
-                <h2>null, você <em>merece</em> um momento para você!</h2>
-
-                <p id="texto-resultado">Respire... <br>
-                Diminua o ritmo por alguns minutos, 
-                contando de 10 a 0, enquanto inspirar e experira tranquilamente.</p>
-
-                <aside class="missao"> 
-                    <h3>Seu ritual hoje será:</h3>
-
-                    <ul>
-                        <li>Escutar aquela música que você ama;</li>
-                        <li>Conversar com seus amigos de sala;</li>
-                        <li>Ficar uns minutinhos longe do código.</li>
-                    </ul>
-                </aside>
-
-                <button type="button" 
-                class="primary-button" data-next="biscoito"> Tem mais uma coisa...</button>
-            </article>
-        </section>
-
-        <!-- Tela biscoito da sorte-->
-
-        <section id="biscoito" class="screen">
-            <article class="card biscoito-card">
-                <header>
-                    <p class="vendo"> Descubra sua sorte de hoje!</p>
-                    <h2>null, abra o seu biscoitinho da sorte 🥠</h2>
-
-                    <p class="mutado"> Tem uma pequena missão te esperando.</p>
-
-                    <button id="biscoito-sorte" class="biscoito-btn" 
-                    type="button"> 
-                        <span class="biscoito biscoito-left"></span> 
-                        <span class="biscoito biscoito-right"></span> 
-                        <span class="biscoito-papel"> ? </span>
-                    </button>
-
-                    <p id="biscoito-hint" class="biscoito-hint">Clique no biscoito para descobrir sua sorte.</p>
-
-                    <output id="sorte-resultado"
-                    class="sorte-resultado"></output>
-
-                    <button id="continuar-sorte" type="button" 
-                    class="primary-button hidden" data-next="final">
-                    Finalizando meu momento</button>
-                </header>
-            </article>
-        </section>
-
-        <!-- Tela final -->
-
-        <section id="final" class="screen">
-            <article class="card final-card">
-                <div class="pixel-heart">♥</div>
-
-                <p class="vendo"> BUILD CONCLUÍDA \o/</p>
-                <h2>null, você não é uma máquina.</h2>
-                <p>Você não precisa dar conta de tudo o tempo inteiro.</p>
-                <strong>Cuide da pessoa por trás do estudo, do código. <br>
-                    A melhor demonstração de amor próprio e cuidando da pessoa mais importante, <em>você!</em></strong>
-
-                <div class="commit"> 
-                    <p>&gt; git status</p>
-                    <p class="sucesso">✔️código funcionando</p>
-                    <p class="sucesso">✔️usuário validado</p>
-                    <p class="sucesso">✔️autocuidado iniciado</p>
-                    <p> &gt; git commit -m "cuidei de mim ♥"</p>
-                    <p class="commit-sucesso"> commit realizado com <em><strong>sucesso!!</strong></em></p>
+                <div class="ilustracao">
+                    💜
                 </div>
 
-                <p class="obrigada">Feliz Dia do Estudante ♥</p>
+
+                <p class="vendo">
+                    Seu resultado
+                </p>
+
+
+                <h2>
+                    null, você <em>merece</em> um momento para você!
+                </h2>
+
+
+                <p id="texto-resultado">
+
+                    Respire...
+                    <br>
+
+                    Diminua o ritmo por alguns minutos,
+                    contando de 10 a 0, enquanto inspirar e experira tranquilamente.
+
+                </p>
+
+
+                <aside class="missao">
+
+                    <h3>
+                        Seu ritual hoje será:
+                    </h3>
+
+
+                    <ul>
+
+                        <li>Escutar aquela música que você ama;</li>
+
+                        <li>Conversar com seus amigos de sala;</li>
+
+                        <li>Ficar uns minutinhos longe do código.</li>
+
+                    </ul>
+
+                </aside>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    data-next="biscoito">
+                    Tem mais uma coisa...
+                </button>
+
+            </article>
+
+        </section>
+
+
+        <!-- Tela do biscoito da sorte -->
+
+        <section id="biscoito" class="screen">
+
+            <article class="card biscoito-card">
+
+                <header>
+
+                    <p class="vendo">
+                        Descubra sua sorte de hoje!
+                    </p>
+
+
+                    <h2>
+                        null, abra o seu biscoitinho da sorte 🥠
+                    </h2>
+
+
+                    <p class="mutado">
+                        Tem uma pequena missão te esperando.
+                    </p>
+
+
+                    <button id="biscoito-sorte"
+                        class="biscoito-btn"
+                        type="button">
+
+                        <span class="biscoito biscoito-left"></span>
+
+                        <span class="biscoito biscoito-right"></span>
+
+                        <span class="biscoito-papel">
+                            ?
+                        </span>
+
+                    </button>
+
+
+                    <p id="biscoito-hint"
+                        class="biscoito-hint">
+                        Clique no biscoito para descobrir sua sorte.
+                    </p>
+
+
+                    <output id="sorte-resultado"
+                        class="sorte-resultado"></output>
+
+
+                    <button id="continuar-sorte"
+                        type="button"
+                        class="primary-button hidden"
+                        data-next="final">
+                        Finalizando meu momento
+                    </button>
+
+                </header>
+
+            </article>
+
+        </section>
+
+
+        <!-- Tela final-->
+
+        <section id="final" class="screen">
+
+            <article class="card final-card">
+
+                <div class="pixel-heart">
+                    ♥
+                </div>
+
+
+                <p class="vendo">
+                    BUILD CONCLUÍDA \o/
+                </p>
+
+
+                <h2>
+                    null, você não é uma máquina.
+                </h2>
+
+
+                <p>
+                    Você não precisa dar conta de tudo o tempo inteiro.
+                </p>
+
+
+                <strong>
+
+                    Cuide da pessoa por trás do estudo, do código.
+                    <br>
+
+                    A melhor demonstração de amor próprio e cuidando da pessoa mais importante,
+                    <em>você!</em>
+
+                </strong>
+
+
+                <div class="commit">
+
+                    <p>
+                        &gt; git status
+                    </p>
+
+                    <p class="sucesso">
+                        ✔️código funcionando
+                    </p>
+
+                    <p class="sucesso">
+                        ✔️usuário validado
+                    </p>
+
+                    <p class="sucesso">
+                        ✔️autocuidado iniciado
+                    </p>
+
+                    <p>
+                        &gt; git commit -m "cuidei de mim ♥"
+                    </p>
+
+                    <p class="commit-sucesso">
+                        commit realizado com
+                        <em>
+                            <strong>
+                                sucesso!!
+                            </strong>
+                        </em>
+                    </p>
+
+                </div>
+
+
+                <p class="obrigada">
+                    Feliz Dia do Estudante ♥
+                </p>
+
 
                 <button
                     id="reiniciar"
                     type="button"
-                    class="secondary-button">refazer ↻</button>
+                    class="secondary-button"
+                >
+                    refazer ↻
+                </button>
+
             </article>
+
         </section>
+
     </main>
-    <script src="script.js"></script>  
+
+    <script src="script.js"></script>
+
 </body>
 </html>

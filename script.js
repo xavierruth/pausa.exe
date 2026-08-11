@@ -1,5 +1,5 @@
 /* =========================================
-   VARIÁVEIS
+   Variáveis
 ========================================= */
 
 let nomeAluno = "";
@@ -10,7 +10,7 @@ let biscoitoAberto = false;
 
 
 /* =========================================
-   ELEMENTOS
+   Elementos
 ========================================= */
 
 const telas = document.querySelectorAll(".screen");
@@ -23,39 +23,33 @@ const entradaNome = document.getElementById("entrada-nome");
 
 const areaCarregamento = document.getElementById("area-carregamento");
 
-const carregamentoProgresso =
-    document.getElementById("carregamento-progresso");
+const carregamentoProgresso = document.getElementById("carregamento-progresso");
 
-const carregamentoPorcentagem =
-    document.getElementById("carregamento-porcentagem");
+const carregamentoPorcentagem = document.getElementById("carregamento-porcentagem");
 
-const proxSecao =
-    document.getElementById("prox-secao");
+const proxSecao = document.getElementById("prox-secao");
 
-const mostrarResultado =
-    document.getElementById("mostrar-resultado");
+const mostrarResultado = document.getElementById("mostrar-resultado");
 
-const textoResultado =
-    document.getElementById("texto-resultado");
+const textoResultado = document.getElementById("texto-resultado");
 
-const biscoitoSorte =
-    document.getElementById("biscoito-sorte");
+const biscoitoSorte = document.getElementById("biscoito-sorte");
 
-const biscoitoHint =
-    document.getElementById("biscoito-hint");
+const biscoitoHint = document.getElementById("biscoito-hint");
 
-const sorteResultado =
-    document.getElementById("sorte-resultado");
+const sorteResultado = document.getElementById("sorte-resultado");
 
-const continuarSorte =
-    document.getElementById("continuar-sorte");
+const continuarSorte = document.getElementById("continuar-sorte");
 
-const reiniciar =
-    document.getElementById("reiniciar");
+const reiniciar = document.getElementById("reiniciar");
 
+
+/* BTN Claro e Escuro */
+
+const alternarTema = document.getElementById("alternar-tema");
 
 /* =========================================
-   CONFIRMAR NOME
+   Confirmando nome
 ========================================= */
 
 function confirmarNomeAluno() {
@@ -63,13 +57,13 @@ function confirmarNomeAluno() {
     nomeAluno = nomeInput.value.trim();
 
     if (!nomeAluno) {
+
         nomeInput.focus();
+
         return;
     }
 
-
-    document
-        .querySelectorAll("p, h1, h2, h3, strong")
+    document.querySelectorAll("p, h1, h2, h3, strong")
         .forEach((elemento) => {
 
             elemento.innerHTML =
@@ -77,23 +71,17 @@ function confirmarNomeAluno() {
                     "null",
                     nomeAluno
                 );
-
         });
-
-
 
     entradaNome.classList.add("hidden");
 
-
     areaCarregamento.classList.remove("hidden");
-
 
     iniciarCarregamento();
 }
 
-
 /* =========================================
-   BOTÃO DO NOME
+   BTN nome
 ========================================= */
 
 confirmarNome.addEventListener(
@@ -101,81 +89,77 @@ confirmarNome.addEventListener(
     confirmarNomeAluno
 );
 
-
 /* =========================================
-   ENTER NO INPUT
+   Enter no input
 ========================================= */
 
-nomeInput.addEventListener(
-    "keydown",
-    (evento) => {
+nomeInput.addEventListener("keydown",(evento) => {
 
         if (evento.key === "Enter") {
+
             confirmarNomeAluno();
         }
 
     }
 );
 
-
 /* =========================================
-   CARREGAMENTO
+   Carregamento
 ========================================= */
 
 function iniciarCarregamento() {
 
     let progresso = 0;
 
-    const intervalo = setInterval(() => {
+    const intervalo =
+        setInterval(() => {
 
-        progresso++;
+            progresso++;
 
-        carregamentoProgresso.style.width =
-            `${progresso}%`;
+            carregamentoProgresso.style.width =
+                `${progresso}%`;
 
-        carregamentoPorcentagem.textContent =
-            `${progresso}%`;
+            carregamentoPorcentagem.textContent =
+                `${progresso}%`;
 
+            if (progresso >= 100) {
 
-        if (progresso >= 100) {
+                clearInterval(intervalo);
 
-            clearInterval(intervalo);
+                setTimeout(() => {
 
-            setTimeout(() => {
+                    mostrarTela("bemvindos");
 
-                mostrarTela("bemvindos");
+                }, 700);
 
-            }, 700);
+            }
 
-        }
-
-    }, 30);
+        }, 30);
 }
 
-
 /* =========================================
-   TROCAR DE TELA
+   Trocar tela
 ========================================= */
 
 function mostrarTela(idTela) {
 
     telas.forEach((tela) => {
-        tela.classList.remove("active");
-    });
 
+        tela.classList.remove("active");
+
+    });
 
     const telaEscolhida =
         document.getElementById(idTela);
 
-
     if (!telaEscolhida) {
+
         console.error(
             `A tela "${idTela}" não existe.`
         );
 
         return;
     }
-
 
     telaEscolhida.classList.add("active");
 
@@ -187,12 +171,10 @@ function mostrarTela(idTela) {
 
 
 /* =========================================
-   BOTÕES DATA-NEXT
+   BTN data-next
 ========================================= */
 
-document
-    .querySelectorAll("[data-next]")
-    .forEach((botao) => {
+document.querySelectorAll("[data-next]").forEach((botao) => {
 
         botao.addEventListener(
             "click",
@@ -202,100 +184,75 @@ document
                     botao.dataset.next;
 
                 mostrarTela(proximaTela);
-
             }
         );
-
     });
 
-
 /* =========================================
-   CHECK-IN DE ENERGIA
+   Check-in
 ========================================= */
 
-document
-    .querySelectorAll('input[name="energia"]')
-    .forEach((radio) => {
+document.querySelectorAll('input[name="energia"]')
+    .forEach((radio) => {radio.addEventListener("change",() => {
 
-        radio.addEventListener(
-            "change",
-            () => {
-
-                energia = radio.value;
+                energia =
+                    radio.value;
 
                 proxSecao.classList.remove(
                     "hidden"
                 );
-
             }
         );
-
     });
-
 
 /* =========================================
    IR PARA PERGUNTA 2
 ========================================= */
 
-proxSecao.addEventListener(
-    "click",
-    () => {
+proxSecao.addEventListener("click",() => {
 
         mostrarTela("pergunta");
 
     }
 );
 
-
 /* =========================================
-   NECESSIDADE
+   Nencessidade
 ========================================= */
 
-document
-    .querySelectorAll('input[name="preciso"]')
-    .forEach((radio) => {
+document.querySelectorAll('input[name="preciso"]').forEach((radio) => {
 
-        radio.addEventListener(
-            "change",
-            () => {
+        radio.addEventListener("change",() => {
 
-                preciso = radio.value;
+                preciso =
+                    radio.value;
 
                 mostrarResultado.classList.remove(
                     "hidden"
                 );
-
             }
         );
-
     });
-
 
 /* =========================================
    MOSTRAR RESULTADO
 ========================================= */
 
-mostrarResultado.addEventListener(
-    "click",
-    () => {
+mostrarResultado.addEventListener("click",() => {
 
         gerarResultado();
 
         mostrarTela("resultado");
-
     }
 );
 
-
 /* =========================================
-   GERAR RESULTADO
+   Gendando o resultado
 ========================================= */
 
 function gerarResultado() {
 
-    const tituloResultado =
-        document.querySelector("#resultado h2");
-
+    const tituloResultado = document.querySelector("#resultado h2");
 
     if (energia === "baixa") {
 
@@ -305,6 +262,7 @@ function gerarResultado() {
         textoResultado.textContent =
             "Hoje não precisa ser sobre produtividade. " +
             "Faça o necessário e permita-se desacelerar.";
+
 
         return;
     }
@@ -327,6 +285,7 @@ function gerarResultado() {
 
         tituloResultado.innerHTML =
             `${nomeAluno}, primeiro: vá comer alguma coisa. 🍔`;
+
 
         textoResultado.textContent =
             "Seu código pode esperar alguns minutos. " +
@@ -365,14 +324,14 @@ function gerarResultado() {
     tituloResultado.innerHTML =
         `${nomeAluno}, você <em>merece</em> um momento para você! 💜`;
 
+
     textoResultado.textContent =
         "Respire. Diminua o ritmo por alguns minutos " +
         "e lembre que você é mais do que aquilo que produz.";
 }
 
-
 /* =========================================
-   BISCOITO DA SORTE
+   Biscoito da sorte
 ========================================= */
 
 const sortes = [
@@ -403,37 +362,30 @@ const sortes = [
 
 ];
 
-
-biscoitoSorte.addEventListener(
-    "click",
-    () => {
+biscoitoSorte.addEventListener("click",() => {
 
         if (biscoitoAberto) {
+
             return;
+
         }
 
-
         biscoitoAberto = true;
-
 
         biscoitoSorte.classList.add(
             "aberto"
         );
 
-
         biscoitoHint.textContent =
             "Seu biscoito revelou uma mensagem...";
-
 
         const numeroAleatorio =
             Math.floor(
                 Math.random() * sortes.length
             );
 
-
         const sorte =
             sortes[numeroAleatorio];
-
 
         setTimeout(() => {
 
@@ -445,11 +397,9 @@ biscoitoSorte.addEventListener(
                 "visivel"
             );
 
-
             continuarSorte.classList.remove(
                 "hidden"
             );
-
 
             biscoitoHint.textContent =
                 "✨ Sua sorte foi revelada.";
@@ -459,30 +409,92 @@ biscoitoSorte.addEventListener(
     }
 );
 
-
 /* =========================================
-   REINICIAR
+   Reiniciar
 ========================================= */
 
-reiniciar.addEventListener(
-    "click",
-    () => {
+reiniciar.addEventListener("click",() => {
 
         location.reload();
 
     }
 );
 
-
 /* =========================================
-   INICIALIZAÇÃO
+   Modo claro e escuro
 ========================================= */
 
-window.addEventListener(
-    "load",
-    () => {
+if (alternarTema) {
 
-        nomeInput.focus();
+    alternarTema.addEventListener("click",() => {
+
+            const modoEscuro =
+                document.body.classList.toggle(
+                    "tema-escuro"
+                );
+
+            alternarTema.setAttribute(
+                "aria-pressed",
+                String(modoEscuro)
+            );
+
+            if (modoEscuro) {
+
+                alternarTema.textContent =
+                    "☀️ Modo claro";
+
+            } else {
+
+                alternarTema.textContent =
+                    "🌙 Modo escuro";
+
+            }
+
+            localStorage.setItem(
+                "pausa-tema",
+                modoEscuro
+                    ? "escuro"
+                    : "claro"
+            );
+
+        }
+    );
+
+}
+
+/* =========================================
+   Iniciando
+========================================= */
+
+window.addEventListener("load",() => {
+
+        const temaSalvo =
+            localStorage.getItem("pausa-tema");
+
+        if (
+            temaSalvo === "escuro" &&
+            alternarTema
+        ) {
+
+            document.body.classList.add(
+                "tema-escuro"
+            );
+
+            alternarTema.setAttribute(
+                "aria-pressed",
+                "true"
+            );
+
+            alternarTema.textContent =
+                "☀️ Modo claro";
+
+        }
+
+        if (nomeInput) {
+
+            nomeInput.focus();
+
+        }
 
     }
 );
